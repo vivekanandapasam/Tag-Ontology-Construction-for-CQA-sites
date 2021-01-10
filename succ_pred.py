@@ -43,7 +43,7 @@ with open('entropy.p', 'rb') as fp:
   h = pickle.load(fp)
 
 
-tags  = pd.read_csv('filtags.csv',header=0,delimiter=',')
+tags  = pd.read_csv('datacsv/Filtags.csv',header=0,delimiter=',')
 
 tag_id = defaultdict(int)
 for ind,row in tags.iterrows():
