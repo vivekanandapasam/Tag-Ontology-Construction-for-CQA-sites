@@ -146,7 +146,7 @@ df.rename(columns = {'Id' : 'id','TagName' : 'label'},inplace = True)
 df.update('"' + df[['label']].astype(str) + '"')
 del df['Count']
 print(df.to_string(index = False))
-df.to_csv("./datacsv/nodes.csv",index=False,sep=' ')
+df.to_csv("./datacsv/nodes.csv",index=False,sep=',')
 
 
 
