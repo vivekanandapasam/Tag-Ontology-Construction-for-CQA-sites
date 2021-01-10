@@ -135,7 +135,7 @@ for i in h:
 
 # wrting edges
 with open("./datacsv/edges.csv",'w') as csvfile:
-  writer = csv.DictWriter(csvfile,delimiter = ' ' ,fieldnames=['Source','Target','Weight'])
+  writer = csv.DictWriter(csvfile,delimiter = ',' ,fieldnames=['Source','Target','Weight'])
   writer.writeheader()
   writer.writerows(filt)
 
