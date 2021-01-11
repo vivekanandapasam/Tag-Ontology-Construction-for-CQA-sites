@@ -34,9 +34,27 @@ Constructing Tag onotlogy for QA sites
 
 16. concept_net.py - gives relationships from concept net
 
-17. webosa.py - gives relationships from webisa
+17. webisa.py - gives relationships from webisa
 
 18. dbpedia_abstracts_catlinks.py - extracts abstracts and category links of tags from dbpedia.
 
-19. Tag Ontologu for QA sites.pdf - presentation pdf 
+19. Tag Ontology for QA sites.pdf - presentation pdf 
+
+
+How the flow of running should go:
+
+1. First download the xml files from the stackexchange site
+2. Convert the xml files into csv files using xml_to_csv.py
+3. Run cleandata.py to create dictionaries
+4. Create all subsumption relationships using Ontology.py
+5. Create communities using infomap online tool
+6. Run parent_child.py and filter_parent_child.py - it gives par-chld relationships
+7. Create corpus using create_corpus.py
+8. Run siblings_glove.py to produce siblings using glove
+9. Run labelled_lda_training which trains the llda model
+10. Run siblings_lda to produce siblings using llda and glvoe
+11. Run filer_siblings.py to filter both glove and llda siblings
+
+NOTE: From step 6 to 11 each file is ran for a specific cluster so these files need to be run for all the clusters. A master files can be created and all the files can be run in a for loop.
+
 
