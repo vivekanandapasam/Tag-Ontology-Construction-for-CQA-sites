@@ -40,8 +40,10 @@ Constructing Tag onotlogy for QA sites
 
 19. Tag Ontology for QA sites.pdf - presentation pdf 
 
+20. Tag Ontology for QA sites final.pdf - Final presentation pdf with results
 
-How the flow of running should go:
+
+# How the flow of running should go:
 
 1. First download the xml files from the stackexchange site
 2. Convert the xml files into csv files using xml_to_csv.py
@@ -55,6 +57,7 @@ How the flow of running should go:
 10. Run siblings_lda to produce siblings using llda and glvoe
 11. Run filer_siblings.py to filter both glove and llda siblings
 
-NOTE: From step 6 to 11 each file is ran for a specific cluster so these files need to be run for all the clusters. A master files can be created and all the files can be run in a for loop.
+# NOTE: 
+From step 6 to 11 each file is ran for a specific cluster so these files need to be run for all the clusters. A master files can be created and all the files can be run in a for loop.
 
 
