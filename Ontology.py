@@ -31,11 +31,20 @@ def gdistance(tag1,tag2):
 
 # claculates subsumption
 def subsum(tag1,tag2):
+  if(comm[tag1][tag2] == 0):
+    return 0
+
   num = sim[tag1][tag2]
-  den = 1
-  for i in sim[tag1]:
-    den += sim[tag1][i]
+  #den = 1
+  den = 0
+  for i in sim[tag2]:
+    try:
+      if(comm[tag2][i] != 0):
+        den += sim[tag2][i]
+    except:
+      continue   
   return (num/den)
+
 
 
 
@@ -78,16 +87,18 @@ print("sim done")
 
 # subsumption calculation
 p = defaultdict(lambda: defaultdict(lambda:0))
+p_new = {}
+
 for comb in itertools.combinations(tag_to_pos.keys(),2):
   p[comb[0]][comb[1]] = subsum(comb[0],comb[1]) * 10000# multiplying by 10000 for scaling
-  
+  p_new[comb[0]][comb[1]] = p[comb[0]][comb[1]]
   
 #print(p)
 
 
 # wrting to a pickle file
-# with open('sub.p', 'wb') as fp:
-#   pickle.dump(p, fp, protocol=pickle.HIGHEST_PROTOCOL)
+with open('sub.p', 'wb') as fp:
+  pickle.dump(p_new, fp, protocol=pickle.HIGHEST_PROTOCOL)
   
 print("p done")
 
@@ -109,7 +120,17 @@ print("h done")
 
 def N_large(c):
   count  = len(p[c])
-  count = int(count/10)
+  if count > 150:
+    count = int(count/25)
+  elif count > 100:
+    count = int(count/20)
+  elif count > 50:
+    count = int(count/10)  
+  elif count > 10 :
+    count = int(count/5)
+  else:
+    count = int(count/2)
+    
   top = nlargest(count,p[c],key=p[c].get)
   return top
 
