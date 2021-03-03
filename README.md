@@ -38,9 +38,11 @@ Constructing Tag onotlogy for QA sites
 
 18. dbpedia_abstracts_catlinks.py - extracts abstracts and category links of tags from dbpedia.
 
-19. Tag Ontology for QA sites.pdf - presentation pdf 
+19. tag_wiki_excerpt.csv - In the given dataset each tag has a wiki post and an excerpt post which defines the tag. This csv file contains the text of thoise posts for each tag
 
-20. Tag Ontology for QA sites final.pdf - Final presentation pdf with results
+20. Tag Ontology for QA sites.pdf - presentation pdf 
+
+21. Tag Ontology for QA sites final.pdf - Final presentation pdf with results
 
 
 # How the flow of running should go:
